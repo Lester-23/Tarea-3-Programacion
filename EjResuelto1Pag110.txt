@@ -1,0 +1,36 @@
+using System;
+
+namespace EjercicioResuelto1Pag110
+{
+    class Ejercicio6_1
+    {
+        /* Este metodo imprime una cabecera para el programa
+         * que incluye un mensaje de bienvendia*/
+        static void Cabecera(string fecha, string ejercicio)
+
+          
+        {
+            string nombre, cabecera;
+            Console.WriteLine("Introduzca su nombre de usuario: ");
+            nombre = Console.ReadLine();
+
+            Console.WriteLine("************************************************");
+            Console.WriteLine();
+            Console.WriteLine("         PROGRAMA: " + ejercicio);
+            Console.WriteLine();
+            Console.WriteLine("         FECHA: " + fecha);
+            Console.WriteLine();
+            Console.WriteLine("         Bienvenido " + nombre);
+            Console.WriteLine();
+            Console.WriteLine("************************************************");
+                        
+        }
+
+        static void Main()
+        {
+            string nombre;
+            Cabecera("EJERCICIO RESUELTO 6-1", "20 de julio de 2005");
+            
+        }
+    }
+}//Cierre de la clase Ejercicio6_1

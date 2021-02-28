@@ -1,0 +1,40 @@
+using System;
+
+namespace EjResuelto3Pag110
+{
+    class Program
+    {
+        static int Mayor(int a, int b, int c)
+        {
+            
+
+            if (a > b)
+                if (a > c)
+                    return a;
+                else
+                    return c;
+            else
+                if (b > c)
+                    return b;
+                else
+                    return c;
+                
+        }
+        static void Main()
+        {
+            int num1, num2, num3;
+            Console.WriteLine();
+            Console.WriteLine("**   EJERCICIO RESUELTO 6-3  **");
+            Console.WriteLine();
+
+            Console.WriteLine("Escribe el primer numero entero: ");
+            num1 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("\nEscribe el segundo numero entero: ");
+            num2 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("\nEscribe el tercer numero entero: ");
+            num3 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("\nEl mayor es " + Mayor(num1, num2, num3));
+
+        }
+    }
+}

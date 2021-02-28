@@ -1,0 +1,89 @@
+using System;
+
+namespace EjResuelto9Pag110
+{
+    class Program
+    {
+        const int dimension = 3;
+        static int[,] matriz = new int[dimension, dimension];
+
+        static void RellenarMatriz()
+        {
+            Console.WriteLine();
+            for (int i=0; i<dimension; i++)
+                for (int j= 0; j<dimension; j++)
+                {
+                    Console.Write("[{0}, {1}]:", i, j);
+                    matriz[i, j] = Int32.Parse(Console.ReadLine());
+                }
+            Console.WriteLine();
+        }
+        static void Mostrar()
+        {
+            for (int i=0; i<dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                    Console.Write("{o,5}", matriz[i, j]);
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        static int Traza()
+        {
+            Console.WriteLine();
+            int traza = 0;
+            for (int i = 0; i < dimension; i++)
+                for (int j = 0; j < dimension; j++)
+                    if (i == j) traza = traza + matriz[i, j];
+            return traza;
+        }
+        static int[,] Transpuesta()
+        {
+            int[,] transpuesta = new int[dimension, dimension];
+            for (int i = 0; i < dimension; i++)
+                for (int j = 0; j < dimension; j++)
+                    transpuesta[i, j] = matriz[j, i];
+            return transpuesta;
+        }
+
+        static void Main()
+        {
+            int op;
+
+            Console.WriteLine();
+            Console.WriteLine("**   EJERCICIO RESUELTO 6-9  **");
+            Console.WriteLine();
+
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("Elije una opcion ");
+                Console.WriteLine("1 Crear una Matriz ");
+                Console.WriteLine("2 Mostrar matriz ");
+                Console.WriteLine("3 Traza ");
+                Console.WriteLine("4 Transpuesta ");
+                Console.WriteLine("5 Salir");
+                op = Int32.Parse(Console.ReadLine());
+                switch (op)
+                {
+                    case 1:
+                        Console.WriteLine("Introduzca los elementos: ");
+                        RellenarMatriz();
+                        break;
+                    case 2:
+                        Console.WriteLine("La matriz es: ");
+                        Mostrar();
+                        break;
+                    case 3:
+                        Console.WriteLine("La traza es: {0}", Traza());
+                        break;
+                    case 4:
+                        Console.WriteLine("La transpuesta es: ");
+                        Transpuesta();
+                        break;
+                }
+            }
+            while (op != 5);
+        }
+    }
+}

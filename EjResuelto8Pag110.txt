@@ -1,0 +1,135 @@
+using System;
+
+namespace EjResuelto8Pag110
+{
+    class Program
+    {
+        const int tamaño = 6;
+        static int[] lista = new int[6];
+        static int num_elem;
+        static void InsertarElemento(int e)
+        {
+            if (num_elem == tamaño)
+                Console.WriteLine("Error. La lista esta llena ");
+            else
+            {
+                lista[num_elem] = e;
+                num_elem++;
+            }
+        }
+        static void EliminarElemento(int e)
+        {
+            if (num_elem == 0)
+                Console.WriteLine("Error. La lista esta vacia ");
+            else
+            {
+                int posicion = BuscarElemento(e);
+                if (posicion == num_elem)
+                    Console.WriteLine("El elemento no existe");
+                else
+                {
+                    for (int i = posicion; i < num_elem - 1; i++)
+                        lista[i] = lista[i + 1];
+                    num_elem--;
+                }
+            }
+        }
+        static int BuscarElemento(int e)
+        {
+            for (int i = 0; i < num_elem; i++)
+                if (lista[i] == e) return i;
+            return num_elem;
+        }
+        static void MostrarLista()
+        {
+            Console.WriteLine();
+            if (num_elem == 0)
+                Console.WriteLine("La lista esta vacia ");
+            else
+            {
+                Console.Write("La lista es: ");
+                for (int i = 0; i < num_elem - 1; i++)
+                    Console.Write("{0},", lista[i]);
+                Console.WriteLine(lista[num_elem - 1]);
+            }
+            Console.WriteLine();
+        }
+        static int ContarElemento(int e)
+        {
+            int contador = 0;
+            for (int i = 0; i < num_elem; i++)
+                if (lista[i] == e)
+                    contador++;
+            return contador;
+        }
+        static int ElMenor()
+        {
+            if (num_elem == 0)
+                Console.WriteLine("La lista esta vacia");
+            else
+            {
+                int menor = lista[0];
+                for (int i = 1; i < num_elem - 1; i++)
+
+                    if (lista[i] < menor)
+                        menor = lista[i];
+                return menor;
+            }
+        }
+        static void Main()
+        {
+            int op, elem;
+
+            Console.WriteLine();
+            Console.WriteLine("**   EJERCICIO RESUELTO 6-8  **");
+            Console.WriteLine();
+
+            do
+            {
+                Console.WriteLine("Elije una opcion ");
+                Console.WriteLine("1 Insertar elemento ");
+                Console.WriteLine("2 Eliminar elemento ");
+                Console.WriteLine("3 Contar elemento ");
+                Console.WriteLine("4 Posicion del elemento ");
+                Console.WriteLine("5 Mostrar lista ");
+                Console.WriteLine("6 Obtener menor ");
+                Console.WriteLine("7 Salir ");
+                op = Int32.Parse(Console.ReadLine());
+                switch (op)
+                {
+                    case 1:
+                        Console.Write("Introduzca el elemento: ");
+                        elem = Int32.Parse(Console.ReadLine());
+                        InsertarElemento(elem);
+                        break;
+                    case 2:
+                        Console.Write("Introduzca el elemento: ");
+                        elem = Int32.Parse(Console.ReadLine());
+                        EliminarElemento(elem);
+                        break;
+                    case 3:
+                        Console.Write("Introduzca el elemento: ");
+                        elem = Int32.Parse(Console.ReadLine());
+                        Console.WriteLine("El elemento {0} aparece {1} veces", elem, ContarElemento(elem));
+                        break;
+                    case 4:
+                        Console.Write("Introduzca el elemento: ");
+                        elem = Int32.Parse(Console.ReadLine());
+                        int pos = BuscarElemento(elem);
+                        if (pos == num_elem)
+                            Console.WriteLine("El elemento {0} no aparece", elem);
+                        else
+                            Console.WriteLine("El elemento {0} aparece en la posicion {1}", elem, pos);
+                        break;
+                    case 5:
+                        MostrarLista();
+                        break;
+                    case 6: //CAMBIO
+                        Console.WriteLine("El elemento menor es {0}", ElMenor());
+                        break;
+                }
+            }
+            while (op != 7);
+        }
+    }
+}

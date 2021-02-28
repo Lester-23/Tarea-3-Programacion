@@ -1,0 +1,53 @@
+using System;
+
+namespace EjResuelto6Pag110
+{
+    class Program
+    {        
+        static bool Biciesto(int año)
+        {
+            if (año % 400 == 0)
+                return true;
+            else
+                if (año % 4 == 0 && año % 100 != 0)
+                    return true;
+                else
+                    return false;
+        }
+        static int DiasMes(int mes, int año)
+        {
+            switch (mes)
+            {
+                case 2: if (Biciesto(año)) return 29;
+                    else return 28;
+
+                case 4:             
+                case 6:
+                case 9:
+                case 11: return 30;
+
+                default: return 31;
+            }
+        }
+        static void Main()
+        {
+            int año, mes, dia;
+
+            Console.WriteLine();
+            Console.WriteLine("**   EJERCICIO RESUELTO 6-6  **");
+            Console.WriteLine();
+            Console.WriteLine("Introduce la fecha ");
+            Console.Write("Dia: ");
+            dia = int.Parse(Console.ReadLine());
+            Console.Write("Mes: ");
+            mes = int.Parse(Console.ReadLine());
+            Console.Write("Año: ");
+            año = int.Parse(Console.ReadLine());
+
+            if ((año<0) || (mes<1) || (mes<12) || (dia<1) || (dia>DiasMes(mes,año)))
+                Console.WriteLine("Fecha no valida ");
+            else Console.WriteLine("Fecha valida ");
+
+        }
+    }
+}

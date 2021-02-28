@@ -1,0 +1,27 @@
+using System;
+
+namespace AutoEva1pag110
+{
+    class Ejercicio6_1
+    {
+        static void Cabecera(string fecha, string tema)
+
+
+        {
+            string autor, cabecera;
+            Console.WriteLine("Introduzca el nombre del autor: ");
+            autor = Console.ReadLine();
+
+            Console.WriteLine("\n**********************************************");
+            Console.WriteLine("***  Autor: " + autor);
+            Console.WriteLine("***  Fecha: " + fecha);
+            Console.WriteLine("***  Tema: " + tema);
+            Console.WriteLine("**********************************************");
+        }
+        static void Main()
+        {
+            string autor;
+            Cabecera("29/07/2006", "Ejercicio 6-1");
+        }
+    }
+}
